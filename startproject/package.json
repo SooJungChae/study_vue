@@ -1,9 +1,0 @@
-{
-  "name": "startproject",
-  "scripts": {
-    "dev": "nuxt"
-  },
-  "dependencies": {
-    "nuxt": "^2.2.0"
-  }
-}
