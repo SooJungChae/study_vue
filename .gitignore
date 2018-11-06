@@ -1,0 +1,5 @@
+.DS_Store
+.idea/
+
+startproject/node_modules/*
+firstproject/node_modules/*

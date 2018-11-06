@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue project</title>
+    <script src="https://unpkg.com/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script type="application/javascript">
+
+    Vue.component('todo-content', {
+        template: `
+            <div style="width: 720px; background: #ddd; margin: 0 auto;">
+                <h1>Todo List</h1>
+                <slot></slot>
+            </div>
+        `
+    })
+
+    Vue.component('todo-list', {
+        data() {
+            return {
+                items: ['A', 'B', 'C']
+            }
+        },
+        methods: {
+            completed(item) {
+                const items = this.items;
+                const i = items.indexOf(item);
+                items.splice(i, 1);
+            }
+        },
+        template: `
+            <ul>
+                <li v-for="item in items">
+                    {{item}}
+                </li>
+            </ul>
+    `
+    });
+
+    new Vue ({
+        el: '#root',
+        template: `
+            <todo-content>
+                <todo-list></todo-list>
+            </todo-content>
+        `
+    });
+</script>
+</html>
